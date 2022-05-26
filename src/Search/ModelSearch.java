@@ -1,11 +1,10 @@
 package Search;
 
-import java.io.File;
+import java.io.*;
+import java.nio.file.FileSystem;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 class ModelSearch {
 
@@ -29,7 +28,35 @@ class ModelSearch {
 
         this.driveList = new ArrayList<>();
 
-        if (isLinux) this.driveList = null; // TODO: 25/05/2022 Linux Support
+        if (isLinux) {
+
+            try {
+
+                ProcessBuilder dfProcessBuilder = new ProcessBuilder();
+                dfProcessBuilder.command("df", "-h");
+
+                Process dfProcess = dfProcessBuilder.start();
+
+                BufferedReader dfReader = new BufferedReader(new InputStreamReader(dfProcess.getInputStream()));
+                String currentLine;
+
+                while ((currentLine = dfReader.readLine()) != null) {
+
+                    String[] currentLineSplit = currentLine.split(" ");
+                    currentLine = currentLineSplit[currentLineSplit.length - 1];
+
+                    if (currentLine.startsWith("/")) this.driveList.add(currentLine);
+
+                }
+
+                dfProcess.waitFor();
+
+            } catch (IOException | InterruptedException e) {
+                return;
+            }
+
+        }
+
         else {
 
             String[] driveLetters = "QWERTYUIOPASDFGHJKLZXCVBNM".split("");

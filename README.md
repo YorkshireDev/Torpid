@@ -5,28 +5,27 @@ Project Torpid
 
 # Description
 
-Torpid is a disk drive sleep prevention utility, designed primarily for keeping external HDD's awake. It works by writing an empty text file named `Torpid_Keep_Alive_File.TXT` to the drive in a loop specified by a time interval.
+Torpid is a disk drive sleep prevention utility, designed primarily for keeping external HDD's awake. It works by writing an empty text file named `Torpid_Keep_Alive_File.TXT` to the drive in a loop specified by a time interval, and the empty file is deleted after use.
 
 ---
 
 # Requirements
 
-1. **Windows**
+1. **Windows*** or **Linux****
 2. **Java 11** Runtime or Greater
+
+\* Developed and Tested on Windows 10 21H2 64-bit
+
+\** Developed and Tested on Ubuntu 22.04 LTS 64-bit
 
 ---
 
-# Features (Current)
+# Features
 
 * Ability to select multiple drives at once using shift-click or control-click
 * Ability to set the time interval between keep alive writes (default is 2.5 seconds)
 * Simple user interface that is informative
 * Utilises multithreading, one thread per selected drive
-
----
-
-# Features (Upcoming)
-
 * Linux support
 
 ---

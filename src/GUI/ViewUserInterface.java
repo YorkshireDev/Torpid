@@ -171,7 +171,8 @@ public class ViewUserInterface extends JFrame {
 
         this.setContentPane(panelMain);
         this.setTitle("Torpid");
-        this.setPreferredSize(new Dimension(448, 224));
+        boolean isLinux = ! System.getProperty("os.name").toUpperCase().startsWith("WINDOWS");
+        this.setPreferredSize(new Dimension(isLinux ? 544 : 448, 224));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.pack();

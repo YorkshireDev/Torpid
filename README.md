@@ -37,3 +37,13 @@ Torpid is a disk drive sleep prevention utility, designed primarily for keeping 
 3. Set the desired time interval if you want to modify it, or leave it with the default 2.5 seconds
 4. Click the Start button
 5. The Start button turns into the Stop button after it's pressed, so press the now Stop button to stop it
+
+---
+
+# Colours
+
+Each drive will show its status based on one of three colours below:
+
+1. Green - The drive has been written to (kept awake) successfully
+2. Yellow/Orange - The drive is currently being written to (kept awake)
+3. Red - The drive cannot be written to (kept awake) - this will usually be because the drive is admin/root protected
